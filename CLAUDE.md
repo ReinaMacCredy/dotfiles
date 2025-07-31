@@ -81,9 +81,14 @@ tmux source-file ~/.config/tmux/tmux.conf
 ## Key Architectural Components
 
 ### AeroSpace Configuration (`aerospace/`)
-- **Custom Keybinds**: Option-based shortcuts for ergonomic window management
+- **Custom Keybinds**: Simplified ergonomic shortcuts for window management
+  - Focus: `Option + Arrow Keys`
+  - Move: `Cmd + Option + Arrow Keys`
+  - Layout toggle: `Option + Shift + P`
+  - Float toggle: `Cmd + Shift + \`
 - **Service Mode**: Advanced window manipulation via `Option+Shift+Q`
 - **Workspace Logic**: Constrained to 1-5 with simple navigation (`Option+1-5`)
+- **Monitor Assignment**: All workspaces forced to main monitor only
 - **Integration Points**: Callbacks to SketchyBar for status updates
 
 ### SketchyBar Setup (`sketchybar/`)
@@ -100,6 +105,8 @@ tmux source-file ~/.config/tmux/tmux.conf
 - **Lazy.nvim**: Plugin manager with lazy loading
 - **Modular Plugins**: Each plugin in separate file under `lua/plugins/`
 - **LSP Integration**: Mason for language server management
+- **File Explorer**: nvim-tree with `F3` or `Ctrl+n` toggle keybind
+- **Leader Key**: Space bar for all leader-based commands
 
 ### tmux Configuration (`tmux/`)
 - **Popup-Heavy Workflow**: Tools like Claude, lazygit in floating popups
