@@ -70,6 +70,7 @@ monitor_ids=( $(aerospace list-monitors | awk '{print $1}') )
 # - Only show workspaces with active windows or currently selected like in i3
 #   default configuration.
 for monitor_id in ${monitor_ids[@]}; do
-  workspaces_for_monitor_id=( $(aerospace list-workspaces --monitor $monitor_id) )
+  # Only show workspaces 1-5 for organized workflow
+  workspaces_for_monitor_id=(1 2 3 4 5)
   create_workspace_bracket_for_monitor $monitor_id "${workspaces_for_monitor_id[@]}"
 done
