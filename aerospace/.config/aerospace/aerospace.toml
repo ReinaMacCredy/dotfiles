@@ -164,10 +164,10 @@ cmd-alt-ctrl-shift-enter = 'macos-native-fullscreen'
 
 # Switch window focus
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-cmd-alt-ctrl-shift-n = 'focus left'
-cmd-alt-ctrl-shift-e = 'focus down'
-cmd-alt-ctrl-shift-i = 'focus up'
-cmd-alt-ctrl-shift-o = 'focus right'
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
 
 # Move windows in the given direction
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
