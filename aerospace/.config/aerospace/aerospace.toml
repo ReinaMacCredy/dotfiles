@@ -84,6 +84,11 @@ inner.vertical =   24
 # See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
 # All workspaces 1-5 stay on main monitor for simplicity
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
 
 # Float CleanShot X windows by default
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
@@ -171,10 +176,10 @@ alt-right = 'focus right'
 
 # Move windows in the given direction
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-cmd-alt-ctrl-shift-left = 'move left'
-cmd-alt-ctrl-shift-down = 'move down'
-cmd-alt-ctrl-shift-up = 'move up'
-cmd-alt-ctrl-shift-right = 'move right'
+cmd-alt-left = 'move left'
+cmd-alt-down = 'move down'
+cmd-alt-up = 'move up'
+cmd-alt-right = 'move right'
 
 # Switch display focus
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
