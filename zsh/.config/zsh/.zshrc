@@ -192,7 +192,7 @@ fi
 # zoxide (better `cd`)
 # ------------------------------------------------------------------------------
 if type zoxide &>/dev/null; then
-  eval "$(zoxide init zsh --cmd cd)"
+  eval "$(zoxide init zsh)"
 else
   echo ERROR: Could not load zoxide shell integration.
 fi

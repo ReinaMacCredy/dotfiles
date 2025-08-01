@@ -1,0 +1,33 @@
+# Zoxide Configuration
+# Fast directory jumper for shell
+
+[cmd]
+# Use 'z' as the main command
+cmd = "z"
+
+# Use 'zi' for interactive mode
+cmd_interactive = "zi"
+
+[hook]
+# Hook into shell prompt for automatic directory tracking
+prompt = true
+
+[exclude_dirs]
+# Directories to exclude from zoxide database
+dirs = [
+    "/tmp",
+    "/var/tmp",
+    "/System",
+    "/Library",
+    "/Applications",
+    "/usr",
+    "/bin",
+    "/sbin",
+    "/opt",
+    "/.Trash",
+    "/private"
+]
+
+[resolve_symlinks]
+# Whether to resolve symbolic links
+enabled = true

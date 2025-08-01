@@ -36,8 +36,7 @@ default-root-container-layout = 'tiles'
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'horizontal'
-
+default-root-container-orientation = 'auto'
 
 # Mouse follows focus when focused monitor changes
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
@@ -98,7 +97,7 @@ if.app-id = 'pl.maketheweb.cleanshotx'
 check-further-callbacks = true
 run = 'layout floating'
 
-# Ensure development apps always tile (fix for workspace 1)
+# Development apps always tile
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
 check-further-callbacks = true
@@ -115,11 +114,6 @@ check-further-callbacks = true
 run = 'layout tiling'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-check-further-callbacks = true
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 check-further-callbacks = true
 run = 'layout tiling'
@@ -129,7 +123,12 @@ if.app-id = 'company.thebrowser.dia'
 check-further-callbacks = true
 run = 'layout tiling'
 
-# System utilities should always float
+# System utilities should always float (CLAUDE.md compliance)
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+check-further-callbacks = true
+run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.calculator'
 check-further-callbacks = true
@@ -161,13 +160,6 @@ if.app-id = 'org.videolan.vlc'
 check-further-callbacks = true
 run = 'layout floating'
 
-# Browser apps - set to workspace 1 and tile
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.dia'
-check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 1']
-
-# Media apps should float
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
 check-further-callbacks = true
@@ -177,6 +169,12 @@ run = 'layout floating'
 if.app-id = 'com.github.th-ch.youtube-music'
 check-further-callbacks = true
 run = 'layout floating'
+
+# Browser apps - set to workspace 1 and tile
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.dia'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 1']
 
 # Communication apps - set to workspace 2 and tile
 [[on-window-detected]]
@@ -200,7 +198,7 @@ preset = 'qwerty'
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
 
-# Smart Launch Layer - Launch app AND switch to appropriate workspace
+# Smart Launch Layer - Launch app AND switch to appropriate workspace (CLAUDE.md)
 # Development workspace (workspace 1)
 cmd-alt-c = ['exec-and-forget open -a "Cursor.app"', 'workspace 1']
 cmd-alt-t = ['exec-and-forget open -a "Warp.app"', 'workspace 1']
@@ -223,19 +221,31 @@ cmd-alt-o = ['exec-and-forget open -a "Obsidian.app"', 'workspace 4']
 cmd-alt-m = ['exec-and-forget open -a "Spotify.app"', 'workspace 5']
 cmd-alt-v = ['exec-and-forget open -a "VLC.app"', 'workspace 5']
 
+# Additional app shortcuts (from new config)
+cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Brave Browser.app"'
+cmd-alt-ctrl-shift-d = 'exec-and-forget open -a "IntelliJ IDEA Ultimate.app"'
+cmd-alt-ctrl-shift-t = 'exec-and-forget open -a "WezTerm.app"'
+cmd-alt-ctrl-shift-a = 'exec-and-forget open -a "Ghostty.app"'
+cmd-alt-ctrl-shift-z = 'exec-and-forget open -a "Obsidian.app"'
+cmd-alt-ctrl-shift-r = 'exec-and-forget open -a "Windows App"'
+cmd-alt-ctrl-shift-c = 'exec-and-forget open -a "Slack.app"'
+cmd-alt-ctrl-shift-w = 'exec-and-forget open -a "Microsoft Teams.app"'
+cmd-alt-ctrl-shift-s = 'exec-and-forget open -a "Spotify.app"'
+cmd-alt-ctrl-shift-h = 'exec-and-forget open -a "Claude.app"'
+
 # System shortcuts
 cmd-alt-shift-f = 'exec-and-forget open -a "Finder.app"'
 cmd-alt-shift-a = 'exec-and-forget open -a "Activity Monitor.app"'
 
-# Switch between layouts
+# Switch between layouts (CLAUDE.md specs)
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-# Layout toggle - CLAUDE.md specs
 alt-shift-p = 'layout tiles horizontal vertical'
 cmd-alt-ctrl-shift-g = 'layout accordion horizontal vertical'
 
-# Toggle windows in and out of the tiling layout/floating - CLAUDE.md specs
+# Toggle windows in and out of the tiling layout/floating (CLAUDE.md specs)
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-backtick = 'layout floating tiling'
+cmd-shift-backslash = 'layout floating tiling'
+cmd-alt-ctrl-shift-f = 'layout floating tiling'
 
 # Make windows fullscreen
 # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
@@ -243,14 +253,14 @@ cmd-alt-ctrl-shift-m = 'fullscreen'
 cmd-alt-ctrl-shift-k = 'fullscreen --no-outer-gaps'
 cmd-alt-ctrl-shift-enter = 'macos-native-fullscreen'
 
-# Switch window focus - CLAUDE.md specs
+# Switch window focus (CLAUDE.md specs)
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-left = 'focus left'
 alt-down = 'focus down'
 alt-up = 'focus up'
 alt-right = 'focus right'
 
-# Move windows in the given direction - CLAUDE.md specs
+# Move windows in the given direction (CLAUDE.md specs)
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 cmd-alt-left = 'move left'
 cmd-alt-down = 'move down'
@@ -272,7 +282,7 @@ alt-1 = 'workspace 3'
 alt-2 = 'workspace 4'
 alt-3 = 'workspace 5'
 
-# Move windows/nodes to other workspaces (custom layout: E=1, W=2, 1=3, 2=4, 3=5)
+# Move windows/nodes to other workspaces (custom layout: Q=1, W=2, 1=3, 2=4, 3=5)
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-e = 'move-node-to-workspace 1'
 alt-shift-w = 'move-node-to-workspace 2'
@@ -284,8 +294,11 @@ alt-shift-3 = 'move-node-to-workspace 5'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-# Quick balance windows
-cmd-shift-equal = 'resize smart +50'
+# Force 50-50 split for current workspace
+cmd-shift-equal = 'flatten-workspace-tree'
+
+# Force exact 50-50 balance for 2 windows
+cmd-shift-0 = 'exec-and-forget ~/.config/aerospace/scripts/balance-50-50.sh'
 
 # Join windows
 alt-shift-left = 'join-with left'
@@ -296,7 +309,6 @@ alt-shift-right = 'join-with right'
 # Switch focus between the two last used workspaces
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 cmd-alt-ctrl-shift-space = 'workspace-back-and-forth'
-
 
 # Move workspace to next display
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -312,28 +324,6 @@ alt-shift-q = [
 # 'service' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-
-# Service mode shortcuts (omerxx style)
-esc = [
-  'reload-config',
-  'mode main',
-  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
-]
-r = [
-  'flatten-workspace-tree',
-  'mode main',
-  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
-] # reset layout
-f = [
-  'layout floating tiling',
-  'mode main',
-  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
-] # Toggle between floating and tiling layout
-backspace = [
-  'close-all-windows-but-current',
-  'mode main',
-  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
-]
 
 # Move windows to other nodes
 # See: https://nikitabobko.github.io/AeroSpace/commands#join-with
@@ -351,6 +341,28 @@ right = 'resize width +50'
 shift-down = 'resize smart -50'
 shift-up = 'resize smart +50'
 
+# Reset layout
+# See: https://nikitabobko.github.io/AeroSpace/commands#flatten-workspace-tree
+r = [
+  'flatten-workspace-tree',
+  'mode main',
+  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
+]
+
+# Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
+]
+
+# Close all windows on focused workspace
+# See: https://nikitabobko.github.io/AeroSpace/commands#close-all-windows-but-current
+backspace = [
+  'close-all-windows-but-current',
+  'mode main',
+  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
+]
 
 # Reload config
 # See: https://nikitabobko.github.io/AeroSpace/commands#reload-config
@@ -360,3 +372,9 @@ c = [
   'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
 ]
 
+# Back to 'main' mode
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+esc = [
+  'mode main',
+  'exec-and-forget sketchybar --trigger aerospace_service_mode_enabled_changed AEROSPACE_SERVICE_MODE_ENABLED=false',
+]

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-**Version:** 2.1  
+**Version:** 2.1.2  
 **Last Updated:** 2025-08-01  
 **Author:** Reina MacCredy
 
@@ -9,6 +9,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ---
 
 ## 📋 Version History & Changelog
+
+### Version 2.1.2 (2025-08-01) - **LATEST**
+**Recent Changes:**
+- 🔧 **Custom Workspace Layout**: Implemented user-requested keybind changes
+  - Workspace switching: Q=1, W=2, 1=3, 2=4, 3=5 (Option + key)
+  - Move windows: E=1, W=2, 1=3, 2=4, 3=5 (Option + Shift + key)
+- 🔧 **App Auto-Assignment**: Enhanced workspace rules
+  - Dia Browser → Workspace 1 (auto-move + tiling)
+  - Zalo & Discord → Workspace 2 (auto-move + tiling)
+- 🔧 **Floating Apps**: Added media app floating rules
+  - Apple Music (`com.apple.Music`) → always float
+  - YouTube Music (`com.github.th-ch.youtube-music`) → always float
+- 🔧 **SKHD Conflict Resolution**: Fixed keyboard shortcut conflicts
+  - Disabled conflicting SKHD shortcuts for workspace switching
+  - Option + S → Warp Terminal (SKHD quick launch)
+  - Option + W now properly switches to Workspace 2 (AeroSpace)
+- 🔧 **Floating Toggle Shortcut**: Changed from `Cmd+Shift+\` to `Option+\`` for easier access
 
 ### Version 2.1.1 (2025-08-01) - **HOTFIX**
 **Issues Fixed:**
@@ -63,16 +80,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | **Window Focus** | `Option + Arrow Keys` | ✅ Active | N/A (Original) |
 | **Window Move** | `Cmd + Option + Arrow Keys` | ✅ Active | N/A (Original) |
 | **Layout Toggle** | `Option + Shift + P` | ✅ Active | `Alt + /` (v2.0) |
-| **Float Toggle** | `Cmd + Shift + \` | ✅ Active | N/A (Original) |
+| **Float Toggle** | `Option + \`` | ✅ Active | `Cmd + Shift + \` (v2.1.2) |
 | **Service Mode** | `Option + Shift + Q` | ✅ Active | `Alt + ;` (v2.0) |
-| **Workspace Switch** | `Option + 1-5` | ✅ Active | N/A (Original) |
-| **Window Move to WS** | `Option + Shift + 1-5` | ✅ Active | N/A (Original) |
+| **Workspace Switch** | `Option + Q/W/1/2/3` | ✅ Active | Custom layout (v2.1.2) |
+| **Window Move to WS** | `Option + Shift + E/W/1/2/3` | ✅ Active | Custom layout (v2.1.2) |
 
 ### Application Launch Matrix
 | Category | Apps | Quick Access (SKHD) | Smart Launch (AeroSpace) |
 |----------|------|-------------------|-------------------------|
-| **Development** | Cursor, Warp, GitHub | `Left Alt + C/W` | `Cmd + Alt + C/T/G` → WS1 |
-| **Communication** | Zalo, Discord, Zoom | `Left Alt + S/D` | `Cmd + Alt + S/D/Z` → WS2 |
+| **Development** | Cursor, Warp, GitHub | `Left Alt + C/S` | `Cmd + Alt + C/T/G` → WS1 |
+| **Communication** | Zalo, Discord, Zoom | `Left Alt + D` | `Cmd + Alt + S/D/Z` → WS2 |
 | **Browser** | Dia, Firefox | `Left Alt + A` | `Cmd + Alt + A/F` → WS3 |
 | **Productivity** | Notion, Obsidian | `Left Alt + N` | `Cmd + Alt + N/O` → WS4 |
 | **Media** | Spotify, VLC | `Left Alt + M` | `Cmd + Alt + M/V` → WS5 |
@@ -186,7 +203,7 @@ tmux source-file ~/.config/tmux/tmux.conf
   - Focus: `Option + Arrow Keys`
   - Move: `Cmd + Option + Arrow Keys`
   - Layout toggle: `Option + Shift + P`
-  - Float toggle: `Cmd + Shift + \`
+  - Float toggle: `Option + \``
 - **Service Mode**: Advanced window manipulation via `Option+Shift+Q`
 - **Workspace Logic**: Constrained to 1-5 with simple navigation (`Option+1-5`)
 - **Monitor Assignment**: All workspaces forced to main monitor only
@@ -276,9 +293,9 @@ This configuration implements a **two-tier shortcut system** combining skhd (qui
 ### Quick Access Layer (skhd)
 **Left Alt + [key]** - Instant app launching without workspace changes:
 ```bash
-Left Alt + S → Zalo
+Left Alt + S → Warp Terminal
 Left Alt + A → Dia Browser  
-Left Alt + W → Warp Terminal
+# Left Alt + W → DISABLED (conflicts with workspace switching)
 Left Alt + C → Cursor
 Left Alt + F → Finder
 Left Alt + M → Spotify
@@ -343,7 +360,7 @@ Apps automatically move to designated workspaces when opened:
 ### Floating Window Rules
 These apps never tile and always float as popups:
 - **System utilities**: Finder, Calculator, Activity Monitor, System Preferences
-- **Media apps**: Apple Music, Spotify, VLC
+- **Media apps**: Apple Music, Spotify, VLC, YouTube Music
 - **Communication**: Apple Mail
 - **Security**: 1Password
 - **Tools**: CleanShot X, LookAway

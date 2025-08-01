@@ -1,0 +1,23 @@
+# SKHD Configuration for macOS
+# Simple Hotkey Daemon - Quick application launching
+
+# Application Shortcuts (some disabled due to AeroSpace workspace conflicts)
+lalt - s : open -a "Warp"  # Changed from Zalo to Warp
+lalt - a : open -a "Dia"
+# lalt - w : open -a "Warp"  # DISABLED: conflicts with workspace switching
+lalt - c : open -a "Cursor"
+lalt - f : open -a "Finder"
+lalt - m : open -a "Spotify"
+lalt - n : open -a "Notion"
+lalt - d : open -a "Discord"
+
+# Additional Terminal Options
+lalt - b : open -a "Alacritty"
+
+# Development Tools
+shift + lalt - g : open -a "GitHub Desktop"
+shift + lalt - p : open -a "Postman"
+
+# Workspace Automation
+shift + lalt - 1 : open -a "Cursor" && sleep 1 && open -a "Warp"
+shift + lalt - 2 : open -a "Zalo" && sleep 1 && open -a "Discord"

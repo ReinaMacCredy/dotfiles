@@ -34,18 +34,8 @@ brew "python@3.10"
 brew "python@3.11"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: :changed
-# Smarter cd command, inspired by z and autojump
-brew "zoxide"
-# Modern replacement for ls
-brew "eza"
-# Simple hotkey daemon for macOS
-brew "skhd"
-# A fast and secure runtime for JavaScript and TypeScript
-brew "bun"
 # Cross-shell prompt for astronauts
 brew "starship"
-# The most customizable and fast Zsh prompt with excellent Git support
-brew "powerlevel10k"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Modern and pretty fancy file manager for the terminal
@@ -60,10 +50,6 @@ brew "felixkratz/formulae/sketchybar"
 brew "sst/tap/opencode"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
-# Karabiner-Elements is a powerful utility for keyboard customization
-cask "karabiner-elements"
-# Keep your Mac awake with a customizable menu bar widget system
-cask "ubersicht"
 cask "font-meslo-lg-nerd-font"
 # Game development engine
 cask "godot"
