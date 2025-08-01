@@ -10,6 +10,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 📋 Version History & Changelog
 
+### Version 2.1.1 (2025-08-01) - **HOTFIX**
+**Issues Fixed:**
+- 🔧 **AeroSpace Config Cleanup**: Fixed multiple configuration issues
+  - Finder: Changed from tiling → floating (CLAUDE.md compliance)
+  - Service mode: Fixed inconsistent exit triggers for all commands
+  - Floating rules: Added proper rules for system utilities (Calculator, Activity Monitor, System Preferences, 1Password)
+  - Media apps: Added floating rules for Spotify, VLC
+  - Auto-assignment: Added workspace assignment for Zalo/Discord → workspace 2
+- 🔧 **Keybind Optimization**: 
+  - Quick balance: Changed hard-coded resize to smart resize
+  - Removed duplicate service mode comments
+- ✅ **Split Behavior**: Confirmed auto-split working with horizontal orientation
+
 ### Version 2.1 (2025-08-01)
 **Changes Made:**
 - ✅ **AeroSpace Keybinds**: Restored to CLAUDE.md specs after omerxx experiment
