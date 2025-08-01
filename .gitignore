@@ -1,2 +1,46 @@
+# SECURITY: Sensitive directories - NEVER commit these
+ssh/
+.ssh/
+.gnupg/
+.aws/
+.gcp/
+.azure/
+.claude/
+
+# SECURITY: Backup files with potential sensitive data
+*.backup*
+*.bak
+*~
+*.orig
+*.tmp
+
+# SECURITY: Environment and credential files
+.env*
+*.env
+secrets.*
+credentials.*
+config/secrets/
+config/credentials/
+
+# SECURITY: Personal information files
+*_personal*
+*_private*
+*personal*
+*private*
+
+# OS specific
 .DS_Store
 git_mpluspcc/
+Thumbs.db
+
+# IDE/Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+.log
+temp/
+tmp/
