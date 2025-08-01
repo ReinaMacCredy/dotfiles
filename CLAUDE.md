@@ -24,6 +24,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 📋 **Security Audit**: Generated comprehensive security audit report
   - Identified and resolved CRITICAL and HIGH severity vulnerabilities
   - Added security best practices and monitoring recommendations
+- 🔧 **App Auto-Assignment Update**: Enhanced workspace organization
+  - Cursor → Workspace 3 (Development apps)
+  - VS Code Insiders → Workspace 3 (Development apps)
+  - Reorganized workspace layout for better workflow
 
 ### Version 2.1.2 (2025-08-01) - **CONFIGURATION UPDATE**
 **Recent Changes:**
@@ -391,9 +395,9 @@ Shift + Left Alt + 2 → Communication (Zalo + Discord)
 
 ### Automatic Workspace Assignment
 Apps automatically move to designated workspaces when opened:
-- **Development apps** → Workspace 1 (Cursor, Warp, GitHub Desktop)
+- **Browser apps** → Workspace 1 (Dia Browser)  
 - **Communication apps** → Workspace 2 (Zalo, Discord, Zoom)
-- **Browsers** → Workspace 3 (Dia Browser, Firefox)
+- **Development apps** → Workspace 3 (Cursor, VS Code Insiders)
 - **Productivity apps** → Workspace 4 (Notion, Obsidian)
 - **Media apps** → Workspace 5 (Spotify, VLC)
 

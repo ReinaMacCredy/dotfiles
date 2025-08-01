@@ -167,6 +167,17 @@ if.app-id = 'company.thebrowser.dia'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
+# Development apps - set to workspace 3 and tile
+[[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCodeInsiders'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 3']
+
 # Media apps should float
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
