@@ -12,7 +12,7 @@ These are my personal dotfiles, featuring a complete development environment set
 - 🍺 **Homebrew Setup** - 80+ carefully selected packages and applications
 - 🔧 **Development Tools** - Complete setup for multiple programming languages
 - 🎨 **Terminal Customization** - Multiple terminal options (WezTerm, tmux)
-- 🔒 **Security First** - No secrets, safe for public sharing
+- 🔒 **Security Audited** - Comprehensive security cleanup, safe for public sharing
 - 📦 **Stow Management** - Easy symlink management for clean organization
 
 ## 🚀 Quick Start
@@ -71,11 +71,12 @@ That's it! Your development environment is ready to go.
 
 **Layout Management:**
 - `Option + Shift + P` - Toggle horizontal/vertical layout
+- `Option + \`` - Toggle window floating/tiling
 - `Option + Shift + Q` - Enter service mode
 
 **Workspace Navigation:**
-- `Option + 1-5` - Switch to workspace 1-5
-- `Option + Shift + 1-5` - Move window to workspace 1-5
+- `Option + Q/W/1/2/3` - Switch to workspace 1-5 (Custom layout)
+- `Option + Shift + E/W/1/2/3` - Move window to workspace 1-5
 
 **Window Focus:**
 - `Cmd + Alt + Ctrl + Shift + N/E/I/O` - Focus left/down/up/right
@@ -86,6 +87,20 @@ That's it! Your development environment is ready to go.
 - `R` - Reset layout
 - `C` - Reload config
 - `Esc` - Exit service mode
+
+## 🏗️ Workspace Organization
+
+**Automatic App Assignment:**
+- **Workspace 1**: Browser apps (Dia Browser)
+- **Workspace 2**: Communication (Zalo, Discord, Zoom)
+- **Workspace 3**: Development (Cursor, VS Code Insiders)  
+- **Workspace 4**: Productivity (Notion, Obsidian)
+- **Workspace 5**: Media (Spotify, VLC)
+
+**Floating Apps** (never tile):
+- System utilities (Finder, Calculator, Activity Monitor)
+- Media apps (Apple Music, Spotify, VLC, YouTube Music)
+- Security apps (1Password)
 
 ## 🔧 Detailed Setup
 
@@ -235,6 +250,25 @@ Contributions are welcome! If you have improvements or fixes:
 - Test on fresh macOS installation when possible
 - No secrets or personal information
 - Follow existing code style
+
+## 🔒 Security
+
+### Repository Security Status: **SECURE** ✅
+
+This repository has undergone comprehensive security audit and cleanup:
+
+- **✅ No Sensitive Data**: All SSH configurations, credentials, and personal information removed
+- **✅ Git History Clean**: Complete git history purged of sensitive data (179 commits rewritten)
+- **✅ Public-Safe Design**: Repository designed for safe public sharing
+- **✅ Automated Protection**: Comprehensive .gitignore prevents future sensitive data commits
+
+### Security Features
+
+- **No Hardcoded Secrets**: All configurations use placeholders or environment variables
+- **XDG Compliance**: Configuration isolation from sensitive data directories
+- **Regular Audits**: Security audit report available for reference
+
+**Security Audit Report**: Available at `security-audit-report.md`
 
 ## 📜 Credits
 
