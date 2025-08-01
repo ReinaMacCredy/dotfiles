@@ -48,3 +48,6 @@ tmp/
 # Security reports (keep local only)
 security-report.md
 security-audit-report.md
+
+# Claude documentation (keep local only)
+CLAUDE.md
