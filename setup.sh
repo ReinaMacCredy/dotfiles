@@ -74,43 +74,30 @@ install_packages() {
 apply_configurations() {
     print_info "Applying configurations using GNU Stow..."
     
-    # List of available configurations
-    configurations=(
-        "aerospace"
-        "alacritty"
-        "bat"
-        "btop"
-        "fastfetch"
-        "git"
-        "ghostty"
-        "i3"
-        "jankyborders"
-        "k9s"
-        "karabiner"
-        "kitty"
-        "lazygit"
-        "macos-defaults"
-        "neovide"
-        "nvim"
-        "p10k"
-        "scripts"
-        "skhd"
-        "sketchybar"
-        "ssh"
-        "starship"
-        "stow"
-        "tmux"
-        "vim"
-        "wezterm"
-        "zoxide"
-        "zsh"
-    )
+    # Get all actual dotfile directories (exclude special directories)
+    configurations=()
+    for dir in */; do
+        dir_name="${dir%/}"
+        # Skip non-config directories
+        if [[ "$dir_name" != "brew" && "$dir_name" != ".git" && "$dir_name" != "sketchybar-backup"* ]]; then
+            configurations+=("$dir_name")
+        fi
+    done
+    
+    print_info "Found ${#configurations[@]} configurations to apply: ${configurations[*]}"
     
     for config in "${configurations[@]}"; do
         if [[ -d "$config" ]]; then
             print_info "Applying $config configuration..."
             stow "$config" 2>/dev/null || {
-                print_warning "Failed to apply $config configuration (may already exist)"
+                print_warning "Failed to apply $config configuration (may already exist or have conflicts)"
+                # Try to resolve common conflicts
+                if [[ "$config" == "zsh" ]]; then
+                    print_info "Backing up existing zsh config and retrying..."
+                    [[ -f ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc.backup.$(date +%Y%m%d)
+                    [[ -f ~/.zshenv ]] && mv ~/.zshenv ~/.zshenv.backup.$(date +%Y%m%d)
+                    stow "$config" 2>/dev/null && print_success "$config configuration applied after backup"
+                fi
             }
         else
             print_warning "Configuration directory $config not found, skipping"

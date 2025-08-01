@@ -167,12 +167,12 @@ if.app-id = 'company.thebrowser.dia'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
+# Development apps - set to workspace 3 and tile
 [[on-window-detected]]
 if.app-id = 'dev.warp.Warp-Stable'
 check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 1']
+run = ['layout tiling', 'move-node-to-workspace 3']
 
-# Development apps - set to workspace 3 and tile
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
 check-further-callbacks = true
@@ -218,7 +218,6 @@ preset = 'qwerty'
 
 # Smart Launch Layer - Launch app AND switch to appropriate workspace
 # Utilities workspace (workspace 1)
-cmd-alt-t = ['exec-and-forget open -a "Warp.app"', 'workspace 1']
 cmd-alt-a = ['exec-and-forget open -a "Dia.app"', 'workspace 1']
 
 # Communication workspace (workspace 2)  
@@ -227,6 +226,7 @@ cmd-alt-d = ['exec-and-forget open -a "Discord.app"', 'workspace 2']
 cmd-alt-z = ['exec-and-forget open -a "Zoom.app"', 'workspace 2']
 
 # Development workspace (workspace 3)
+cmd-alt-t = ['exec-and-forget open -a "Warp.app"', 'workspace 3']
 cmd-alt-c = ['exec-and-forget open -a "Cursor.app"', 'workspace 3']
 cmd-alt-g = ['exec-and-forget open -a "GitHub Desktop.app"', 'workspace 3']
 

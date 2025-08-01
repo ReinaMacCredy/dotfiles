@@ -31,9 +31,9 @@ stow zsh git aerospace sketchybar tmux cursor
 
 ## 🏗️ Workspace Layout
 
-- **Workspace 1**: Utilities (Terminal, Browser)
+- **Workspace 1**: Utilities (Browser)
 - **Workspace 2**: Communication (Discord, Zalo)
-- **Workspace 3**: Development (Cursor, GitHub)
+- **Workspace 3**: Development (Terminal, Cursor, GitHub)
 - **Workspace 4**: Productivity (Notion, Obsidian)
 - **Workspace 5**: Media (Spotify, VLC)
 
