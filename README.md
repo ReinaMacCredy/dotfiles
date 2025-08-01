@@ -31,7 +31,7 @@ cd ~/.dotfiles
 brew bundle install --file=brew/Brewfile
 
 # 4. Setup configurations with stow
-stow zsh git aerospace sketchybar tmux
+stow zsh git aerospace sketchybar tmux cursor
 ```
 
 That's it! Your development environment is ready to go.
@@ -40,7 +40,7 @@ That's it! Your development environment is ready to go.
 
 ### 🛠️ Development Tools
 - **Languages**: Go, Python 3.10/3.11, Node.js (via nvm)
-- **Editors**: Neovim with extensive VS Code extensions
+- **Editors**: Neovim, Cursor with Claude AI integration
 - **Git**: Enhanced with git-lfs and lazygit
 - **Databases**: PostgreSQL 15, Redis
 - **Containers**: Docker support
@@ -140,6 +140,7 @@ stow git        # Git settings
 stow aerospace  # Window manager
 stow sketchybar # Status bar
 stow tmux       # Terminal multiplexer
+stow cursor     # Cursor editor settings
 # Add other configurations as needed
 ```
 
@@ -166,6 +167,7 @@ Each tool's configuration is in its own directory:
 - `git/` - Git settings and aliases
 - `sketchybar/` - Status bar customization
 - `tmux/` - Terminal multiplexer settings
+- `cursor/` - Cursor editor settings and keybindings
 
 ### Adding New Packages
 

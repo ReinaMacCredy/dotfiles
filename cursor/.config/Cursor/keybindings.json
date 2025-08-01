@@ -1,0 +1,47 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "cmd+4",
+        "command": "composerMode.implement"
+    },
+    {
+        "key": "cmd+1",
+        "command": "composerMode.van"
+    },
+    {
+        "key": "cmd+2",
+        "command": "composerMode.plan"
+    },
+    {
+        "key": "cmd+3",
+        "command": "composerMode.creative"
+    },
+    {
+        "key": "cmd+5",
+        "command": "composerMode.reflect"
+    },
+    {
+        "key": "cmd+e",
+        "command": "composerMode.background"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+q",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    }
+]

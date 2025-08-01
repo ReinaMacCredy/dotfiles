@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-**Version:** 2.1.3  
+**Version:** 2.1.4  
 **Last Updated:** 2025-08-01  
 **Author:** Reina MacCredy
 
@@ -10,7 +10,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 📋 Version History & Changelog
 
-### Version 2.1.3 (2025-08-01) - **LATEST**
+### Version 2.1.4 (2025-08-01) - **LATEST**
+**CURSOR CONFIGURATION ADDED:**
+- ✅ **Cursor Dotfiles Integration**: Added Cursor editor configuration to dotfiles
+  - **ADDED**: Cursor settings.json with custom editor preferences
+  - **ADDED**: Cursor keybindings.json with personalized shortcuts
+  - **STRUCTURE**: `/cursor/.config/Cursor/` following stow conventions
+  - **INSTALLATION**: `stow cursor` to apply Cursor configurations
+- 📝 **Documentation Updates**: Updated README and CLAUDE.md
+  - Added Cursor to installation instructions
+  - Updated development tools section to mention Claude AI integration
+  - Added Cursor configuration directory to customization guide
+
+### Version 2.1.3 (2025-08-01)
 **CRITICAL SECURITY UPDATE:**
 - 🚨 **Emergency Security Cleanup**: Repository was accidentally made public with sensitive data
   - **REMOVED**: SSH configuration with production server details, IP addresses, usernames
@@ -174,7 +186,7 @@ stow -D tool-name
 stow -n tool-name
 
 # Apply all configurations
-stow zsh git aerospace sketchybar tmux neovim
+stow zsh git aerospace sketchybar tmux neovim cursor
 ```
 
 ### Package Management
@@ -245,6 +257,12 @@ tmux source-file ~/.config/tmux/tmux.conf
 - **File Explorer**: nvim-tree with `F3` or `Ctrl+n` toggle keybind
 - **Leader Key**: Space bar for all leader-based commands
 
+### Cursor Configuration (`cursor/`)
+- **Settings**: Custom editor settings and preferences
+- **Keybindings**: Personalized keyboard shortcuts
+- **Claude Integration**: AI-powered coding assistance
+- **Extensions**: Configured via settings.json
+
 ### tmux Configuration (`tmux/`)
 - **Popup-Heavy Workflow**: Tools like Claude, lazygit in floating popups
 - **Development Focus**: Keybinds optimized for coding workflow
@@ -273,7 +291,7 @@ tmux source-file ~/.config/tmux/tmux.conf
 1. Install Homebrew
 2. Clone repository to `~/.dotfiles`
 3. Run `brew bundle install --file=brew/Brewfile`
-4. Apply configurations with `stow zsh git aerospace sketchybar tmux`
+4. Apply configurations with `stow zsh git aerospace sketchybar tmux cursor`
 5. Restart shell and relevant services
 
 ### Adding New Tools

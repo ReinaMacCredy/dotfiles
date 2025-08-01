@@ -1,0 +1,183 @@
+
+{
+
+"terminal.integrated.env.osx": {
+
+"Q_NEW_SESSION": "1"
+
+},
+
+"vscode_custom_css.imports": [
+
+
+"file:///Users/maccredyreina/Desktop/style.css",
+
+"file:///Users/maccredyreina/Desktop/custom.css"
+
+],
+
+"workbench.editor.empty.hint": "hidden",
+
+"files.autoSave": "afterDelay",
+
+"editor.fontFamily": "LXGW WenKai",
+
+"terminal.integrated.fontFamily": "MesloLGS NF",
+
+"terminal.integrated.defaultProfile.osx": "zsh",
+
+"editor.fontSize": 15,
+
+
+"editor.cursorBlinking": "smooth",
+
+"editor.cursorSmoothCaretAnimation": "on",
+
+"editor.smoothScrolling": true,
+
+"background.backgroundOpacity": [
+    0.95,
+    0.1,
+    0.1,
+    0.1
+],
+
+"background.windowBackgrounds": [
+    "/Users/maccredyreina/Downloads/p1.jpg",
+    "/Users/maccredyreina/Downloads/p1.png"
+],
+
+"explorer.confirmDelete": false,
+
+"files.exclude": {
+
+"**/.trunk/*actions/": true,
+
+"**/.trunk/*logs/": true,
+
+"**/.trunk/*notifications/": true,
+
+"**/.trunk/*out/": true,
+
+"**/.trunk/*plugins/": true
+
+},
+
+"files.watcherExclude": {
+
+"**/.trunk/*actions/": true,
+
+"**/.trunk/*logs/": true,
+
+"**/.trunk/*notifications/": true,
+
+"**/.trunk/*out/": true,
+
+"**/.trunk/*plugins/": true
+
+},
+
+"git.enableSmartCommit": true,
+
+"window.zoomLevel": 1,
+
+"animations.Enabled": true,
+
+"editor.linkedEditing": true,
+
+
+"explorer.confirmPasteNative": false,
+
+"workbench.colorTheme": "Evondev Dracula Darker Contrast New Color",
+
+"animations.Install-Method": "Custom CSS and JS",
+
+"workbench.iconTheme": "material-icon-theme",
+
+
+"editor.rulers": [
+
+80
+
+],
+
+"editor.selectionHighlight": false,
+
+"editor.tabCompletion": "onlySnippets",
+
+"editor.wordBasedSuggestions": "off",
+
+
+"[dart]": {
+
+"editor.formatOnSave": true,
+
+"editor.formatOnType": true,
+
+"editor.rulers": [
+
+80
+
+],
+
+"editor.selectionHighlight": false,
+
+"editor.tabCompletion": "onlySnippets",
+
+"editor.wordBasedSuggestions": "off"
+
+},
+
+"workbench.activityBar.location": "bottom",
+
+"python.defaultInterpreterPath": "/opt/homebrew/bin/python3.12",
+
+"background.useInvertedOpacity": true,
+"background.autoInstall": false,
+"background.backgroundBlur": [
+    "0.2",
+    "0",
+    "0",
+    "0"
+],
+"cursor.composer.shouldAllowCustomModes": true,
+"cursor.diffs.useCharacterLevelDiffs": true,
+"cursor.terminal.usePreviewBox": true,
+"cursor.cpp.enablePartialAccepts": true,
+"update.releaseTrack": "prerelease",
+"git.autofetch": true,
+"roo-cline.allowedCommands": [
+    "npm test",
+    "npm install",
+    "tsc",
+    "git log",
+    "git diff",
+    "git show"
+],
+"git.confirmSync": false,
+"explorer.confirmDragAndDrop": false,
+"git.ignoreRebaseWarning": true,
+"cursor.windowSwitcher.sidebarHoverCollapsed": true,
+"terminal.integrated.suggest.cdPath": "relative",
+"terminal.integrated.suggest.enabled": true,
+"python.terminal.shellIntegration.enabled": true,
+"terminal.integrated.ignoreBracketedPasteMode": true,
+"git.openRepositoryInParentFolders": "never",
+"workbench.colorCustomizations": {},
+"vscode_vibrancy.enableAutoTheme": true,
+"vscode_vibrancy.preferedDarkTheme": "GitHub Dark Default",
+"vscode_vibrancy.theme": "GitHub Dark Default",
+"window.titleBarStyle": "custom",
+"workbench.preferredDarkColorTheme": "Evondev Dracula Darker Contrast",
+"apc.imports": [
+    "file:///Users/maccredyreina/.cursor/extensions/brandonkirbyson.vscode-animations-2.0.1-universal/dist/updateHandler.js"
+],
+"cursor.general.disableHttp2": true,
+"markdown-preview-enhanced.previewTheme": "github-dark.css",
+"workbench.sideBar.location": "right",
+"material-icon-theme.folders.theme": "specific",
+"workbench.productIconTheme": "material-product-icons",
+"material-icon-theme.rootFolders.color": "#7cb342",
+"cursor.composer.shouldChimeAfterChatFinishes": true,
+
+}
