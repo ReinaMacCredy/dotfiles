@@ -1,6 +1,94 @@
 # CLAUDE.md
 
+**Version:** 2.1  
+**Last Updated:** 2025-08-01  
+**Author:** Reina MacCredy
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
+## 📋 Version History & Changelog
+
+### Version 2.1 (2025-08-01)
+**Changes Made:**
+- ✅ **AeroSpace Keybinds**: Restored to CLAUDE.md specs after omerxx experiment
+  - Focus: `Option + Arrow Keys` (reverted from vim-style)
+  - Move: `Cmd + Option + Arrow Keys` 
+  - Layout: `Option + Shift + P` (reverted from Alt+/)
+  - Service: `Option + Shift + Q` (reverted from Alt+;)
+- ✅ **tmux Configuration**: Restored original popup-heavy workflow
+  - Claude popup: `Ctrl+H`, Lazygit: `Ctrl+G`, Session switcher: `Ctrl+N`
+  - Removed Catppuccin theme in favor of original Tokyonight
+- ✅ **System Integration**: SKHD + AeroSpace hybrid launch system maintained
+- ✅ **Workspace Constraint**: Enforced 1-5 only, removed workspace 6+
+
+**Backup Note:** Configuration backed up to `/Users/maccredyreina/.dotfiles-backup-20250801/`
+
+### Version 2.0 (2025-08-01) - **EXPERIMENTAL PHASE**
+**Changes Made:**
+- 🧪 **Experimentation**: Briefly tested omerxx/dotfiles integration
+  - Vim-style navigation (hjkl), Catppuccin tmux theme
+  - Advanced session management with tmux-sessionx, tmux-floax
+- ❌ **Reverted**: Configuration did not align with established workflow
+- 📦 **Artifacts**: Backup maintained at `sketchybar-backup-linkarzu/`
+
+### Version 1.0 (2025-07-XX) - **BASELINE**
+**Initial Configuration:**
+- ✅ **Core System**: AeroSpace + SketchyBar + tmux workflow established
+- ✅ **Hybrid Launch**: SKHD (quick access) + AeroSpace (workspace-aware)
+- ✅ **Window Management**: Simplified keybinds, 5-workspace constraint
+- ✅ **Development Focus**: Popup-heavy tmux workflow for productivity
+
+---
+
+## 🔧 Current Configuration Specifications (v2.1)
+
+### Core Keybind Matrix
+| Function | Keybind | Status | Changed From |
+|----------|---------|--------|--------------|
+| **Window Focus** | `Option + Arrow Keys` | ✅ Active | N/A (Original) |
+| **Window Move** | `Cmd + Option + Arrow Keys` | ✅ Active | N/A (Original) |
+| **Layout Toggle** | `Option + Shift + P` | ✅ Active | `Alt + /` (v2.0) |
+| **Float Toggle** | `Cmd + Shift + \` | ✅ Active | N/A (Original) |
+| **Service Mode** | `Option + Shift + Q` | ✅ Active | `Alt + ;` (v2.0) |
+| **Workspace Switch** | `Option + 1-5` | ✅ Active | N/A (Original) |
+| **Window Move to WS** | `Option + Shift + 1-5` | ✅ Active | N/A (Original) |
+
+### Application Launch Matrix
+| Category | Apps | Quick Access (SKHD) | Smart Launch (AeroSpace) |
+|----------|------|-------------------|-------------------------|
+| **Development** | Cursor, Warp, GitHub | `Left Alt + C/W` | `Cmd + Alt + C/T/G` → WS1 |
+| **Communication** | Zalo, Discord, Zoom | `Left Alt + S/D` | `Cmd + Alt + S/D/Z` → WS2 |
+| **Browser** | Dia, Firefox | `Left Alt + A` | `Cmd + Alt + A/F` → WS3 |
+| **Productivity** | Notion, Obsidian | `Left Alt + N` | `Cmd + Alt + N/O` → WS4 |
+| **Media** | Spotify, VLC | `Left Alt + M` | `Cmd + Alt + M/V` → WS5 |
+
+### tmux Popup Workflow (v2.1)
+| Tool | Popup Keybind | Split H | Split V | New Window |
+|------|---------------|---------|---------|------------|
+| **Claude Code** | `Ctrl + H` | `Alt + H` | `Alt + Shift + H` | `H` |
+| **Lazygit** | `Ctrl + G` | `Alt + G` | `Alt + Shift + G` | `G` |
+| **OpenCode** | `Ctrl + F` | `Alt + F` | `Alt + Shift + F` | `F` |
+| **Session Switcher** | `Ctrl + N` | - | - | - |
+| **Scratch Session** | `Ctrl + S` | - | - | `S` |
+| **Custom Command** | `Ctrl + A` | `Alt + A` | `Alt + Shift + A` | `A` |
+
+### Workspace Constraints & Rules
+- **Workspace Limit**: Strictly 1-5 (no workspace 6+)
+- **Monitor Assignment**: All workspaces → main monitor only
+- **App Auto-Assignment**: Apps automatically move to designated workspaces
+- **Floating Rules**: System utilities (Finder, Calculator, etc.) always float
+
+### Integration Points Status
+| Integration | Status | Config Location | Last Verified |
+|-------------|--------|-----------------|---------------|
+| **AeroSpace ↔ SketchyBar** | ✅ Active | `aerospace.toml:exec-on-workspace-change` | 2025-08-01 |
+| **SKHD ↔ System** | ✅ Active | `skhd/skhdrc` | 2025-08-01 |
+| **Karabiner ↔ Input** | ✅ Active | `karabiner/karabiner.json` | 2025-08-01 |
+| **tmux ↔ Popups** | ✅ Active | `tmux/tmux.conf` | 2025-08-01 |
+
+---
 
 ## Repository Architecture
 
@@ -167,3 +255,240 @@ This dotfiles system prioritizes:
 - **Maintainability**: Modular stow packages, clear separation of concerns
 - **Integration**: Tools work together (AeroSpace + SketchyBar, tmux + dev tools)
 - **Security**: Safe for public sharing, follows best practices
+
+## Hybrid Application Launch System
+
+This configuration implements a **two-tier shortcut system** combining skhd (quick access) with AeroSpace (workspace-aware launching):
+
+### Quick Access Layer (skhd)
+**Left Alt + [key]** - Instant app launching without workspace changes:
+```bash
+Left Alt + S → Zalo
+Left Alt + A → Dia Browser  
+Left Alt + W → Warp Terminal
+Left Alt + C → Cursor
+Left Alt + F → Finder
+Left Alt + M → Spotify
+Left Alt + N → Notion
+Left Alt + D → Discord
+Left Alt + B → Alacritty
+```
+
+### Smart Launch Layer (AeroSpace)
+**Cmd + Alt + [key]** - Launch app AND switch to appropriate workspace:
+```bash
+# Development (Workspace 1)
+Cmd + Alt + C → Cursor + workspace 1
+Cmd + Alt + T → Warp + workspace 1
+Cmd + Alt + G → GitHub Desktop + workspace 1
+
+# Communication (Workspace 2)
+Cmd + Alt + S → Zalo + workspace 2
+Cmd + Alt + D → Discord + workspace 2
+
+# Browser (Workspace 3)
+Cmd + Alt + A → Dia Browser + workspace 3
+
+# Productivity (Workspace 4)
+Cmd + Alt + N → Notion + workspace 4
+
+# Media (Workspace 5)
+Cmd + Alt + M → Spotify + workspace 5
+```
+
+### Automated Setup Commands
+```bash
+# Workspace automation via skhd
+Shift + Left Alt + 1 → Dev workspace (Cursor + Warp)
+Shift + Left Alt + 2 → Communication (Zalo + Discord)
+```
+
+## Advanced Input Management
+
+### Karabiner-Elements Configuration (`karabiner/`)
+- **Caps Lock Remapping**: Acts as Escape on single press, Hyper key when held
+- **Vim Navigation**: Caps Lock + H/J/K/L → Arrow keys system-wide
+- **Hyper Key Shortcuts**: Caps Lock + ; (Backspace), Caps Lock + ' (Delete)
+- **Alternative Navigation**: Right Option + H/J/K/L → Arrow keys
+
+### SKHD Hotkey Daemon (`skhd/`)
+- **Simple syntax**: `modifier - key : command` format
+- **Accessibility required**: Must grant permissions in System Preferences
+- **Service management**: `skhd --start-service`, `skhd --restart-service`
+- **Debug mode**: `skhd --config ~/.config/skhd/skhdrc --verbose`
+
+## Application Behavior Rules
+
+### Automatic Workspace Assignment
+Apps automatically move to designated workspaces when opened:
+- **Development apps** → Workspace 1 (Cursor, Warp, GitHub Desktop)
+- **Communication apps** → Workspace 2 (Zalo, Discord, Zoom)
+- **Browsers** → Workspace 3 (Dia Browser, Firefox)
+- **Productivity apps** → Workspace 4 (Notion, Obsidian)
+- **Media apps** → Workspace 5 (Spotify, VLC)
+
+### Floating Window Rules
+These apps never tile and always float as popups:
+- **System utilities**: Finder, Calculator, Activity Monitor, System Preferences
+- **Media apps**: Apple Music, Spotify, VLC
+- **Communication**: Apple Mail
+- **Security**: 1Password
+- **Tools**: CleanShot X, LookAway
+
+## Service Management Commands
+
+### SKHD Management
+```bash
+# Start skhd service
+skhd --start-service
+
+# Restart after config changes
+skhd --restart-service
+
+# Stop service
+skhd --stop-service
+
+# Test configuration
+skhd --config ~/.config/skhd/skhdrc --verbose
+```
+
+### Multi-Service Restart
+```bash
+# Restart all window management services
+skhd --restart-service && aerospace reload-config
+
+# Restart status bar integration
+brew services restart sketchybar
+```
+
+## Troubleshooting Integration Issues
+
+### SKHD Permission Problems
+```bash
+# Check if skhd is running
+pgrep skhd
+
+# View error logs
+tail -f /tmp/skhd_$USER.err.log
+
+# Grant accessibility permissions in System Preferences
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+```
+
+### AeroSpace Integration
+```bash
+# Reload configuration
+aerospace reload-config
+
+# Debug window assignments
+aerospace list-windows --workspace all
+
+# Check app IDs for rules
+osascript -e 'id of app "App Name"'
+```
+
+---
+
+## 📦 Backup & Recovery System
+
+### Automated Backup Locations
+| Backup Type | Location | Created When | Retention |
+|-------------|----------|--------------|-----------|
+| **Daily Auto** | `/Users/maccredyreina/.dotfiles-backup-YYYYMMDD/` | Before major changes | 30 days |
+| **Experiment** | `/Users/maccredyreina/.dotfiles/[tool]-backup-[feature]/` | Before testing new configs | Manual cleanup |
+| **Git Snapshots** | Local git history | Every commit | Permanent |
+
+### Recovery Procedures
+
+#### Quick Recovery (Same Day)
+```bash
+# Restore from today's backup
+cp -r ~/.dotfiles-backup-$(date +%Y%m%d)/* ~/.dotfiles/
+stow aerospace sketchybar skhd karabiner tmux
+aerospace reload-config && brew services restart sketchybar
+```
+
+#### Selective Component Recovery
+```bash
+# Restore specific tool (example: AeroSpace)
+cp ~/.dotfiles-backup-YYYYMMDD/aerospace/.config/aerospace/aerospace.toml \
+   ~/.dotfiles/aerospace/.config/aerospace/
+aerospace reload-config
+```
+
+#### Git-Based Recovery
+```bash
+# List recent configuration commits
+git log --oneline -10 -- aerospace/ sketchybar/ tmux/
+
+# Restore specific file to previous version
+git checkout <commit-hash> -- aerospace/.config/aerospace/aerospace.toml
+```
+
+### Pre-Change Backup Protocol
+**Always run before major changes:**
+```bash
+# Create timestamped backup
+cp -r ~/.dotfiles ~/.dotfiles-backup-$(date +%Y%m%d-%H%M)
+
+# Commit current state
+cd ~/.dotfiles
+git add -A
+git commit -m "backup: Pre-change snapshot $(date +%Y-%m-%d)"
+
+# Document planned changes in CLAUDE.md changelog
+```
+
+### Version Rollback Commands
+```bash
+# Emergency rollback to last working state
+git checkout HEAD~1 -- aerospace/ sketchybar/ tmux/
+stow aerospace sketchybar tmux
+aerospace reload-config
+brew services restart sketchybar
+
+# Rollback specific keybind changes
+git show HEAD~1:aerospace/.config/aerospace/aerospace.toml > \
+  ~/.dotfiles/aerospace/.config/aerospace/aerospace.toml
+```
+
+---
+
+## 🔄 Change Management Workflow
+
+### For Future Configuration Changes:
+
+1. **Pre-Change Setup**
+   ```bash
+   # Create backup with descriptive name
+   cp -r ~/.dotfiles ~/.dotfiles-backup-$(date +%Y%m%d)-before-[change-description]
+   
+   # Document planned change in CLAUDE.md
+   # Update version number and add changelog entry
+   ```
+
+2. **Testing Phase**
+   ```bash
+   # Make changes incrementally
+   # Test each component individually
+   # Document issues in CLAUDE.md
+   ```
+
+3. **Finalization**
+   ```bash
+   # Update CLAUDE.md with final results
+   # Commit with descriptive message
+   git add -A
+   git commit -m "[scope]: [description] - v[new-version]"
+   
+   # Tag stable versions
+   git tag -a v2.1 -m "Stable configuration after omerxx experiment revert"
+   ```
+
+### Emergency Contacts & Resources
+- **Primary Config**: This CLAUDE.md file
+- **Backup Locations**: Listed in backup table above  
+- **Git History**: `git log --oneline` for change tracking
+- **Community Resources**: 
+  - AeroSpace: https://github.com/nikitabobko/AeroSpace
+  - SketchyBar: https://github.com/FelixKratz/SketchyBar
