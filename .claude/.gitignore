@@ -1,0 +1,25 @@
+# Claude Code - Sensitive Data Exclusions
+# These files contain session data, tokens, or user-specific info
+
+# Session and runtime data
+todos/
+shell-snapshots/
+statsig/
+projects/
+ide/
+
+# Backup files
+*.backup.*
+
+# Logs and cache
+*.log
+*.cache
+*.tmp
+
+# Environment-specific
+settings.local.json
+
+# User-specific session data
+*-agent-*.json
+*.uuid
+

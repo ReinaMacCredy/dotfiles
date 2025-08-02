@@ -5,7 +5,9 @@ ssh/
 .aws/
 .gcp/
 .azure/
-.claude/
+
+# Claude config backup is safe (sensitive data excluded by backup script)
+# .claude/ - commented out to allow safe backup
 
 # SECURITY: Backup files with potential sensitive data
 *.backup*
