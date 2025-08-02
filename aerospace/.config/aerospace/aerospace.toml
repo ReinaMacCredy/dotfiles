@@ -122,7 +122,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 check-further-callbacks = true
-run = 'layout tiling'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.dia'
@@ -146,7 +146,37 @@ check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.mail'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.1password.1password7'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.TextEdit'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.docker.docker'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
 check-further-callbacks = true
 run = 'layout floating'
 
@@ -222,6 +252,9 @@ cmd-alt-a = ['exec-and-forget open -a "Dia.app"', 'workspace 1']
 
 # Communication workspace (workspace 2)  
 cmd-alt-s = ['exec-and-forget open -a "Zalo.app"', 'workspace 2']
+
+# Quick Access Layer (không chuyển workspace)
+alt-z = 'exec-and-forget open -a "Zalo.app"'
 cmd-alt-d = ['exec-and-forget open -a "Discord.app"', 'workspace 2']
 cmd-alt-z = ['exec-and-forget open -a "Zoom.app"', 'workspace 2']
 
