@@ -190,6 +190,58 @@ set_macos_defaults() {
     fi
 }
 
+# Setup Claude Code configuration
+setup_claude_config() {
+    print_info "Setting up Claude Code configuration..."
+    
+    if [[ -d ".claude" ]]; then
+        # Create .claude directory if it doesn't exist
+        mkdir -p "$HOME/.claude"
+        
+        # Copy configuration files
+        if [[ -f ".claude/settings.json" ]]; then
+            print_info "Copying Claude settings..."
+            cp ".claude/settings.json" "$HOME/.claude/settings.json"
+        fi
+        
+        if [[ -f ".claude/settings.local.json" ]]; then
+            print_info "Copying Claude local settings..."
+            # Replace hardcoded paths with current user's home directory
+            sed "s|/Users/maccredyreina|$HOME|g" ".claude/settings.local.json" > "$HOME/.claude/settings.local.json"
+        fi
+        
+        if [[ -f ".claude/CLAUDE.md" ]]; then
+            print_info "Copying Claude user instructions..."
+            # Replace hardcoded paths and sanitize personal info
+            sed -e "s|/Users/maccredyreina|$HOME|g" \
+                -e "s|Reina MacCredy|[Your Name]|g" \
+                -e "s|ReinaMacCredy|[YourGitHubUsername]|g" \
+                -e "s|https://github.com/ReinaMacCredy|https://github.com/[YourGitHubUsername]|g" \
+                ".claude/CLAUDE.md" > "$HOME/.claude/CLAUDE.md"
+        fi
+        
+        # Copy agents directory
+        if [[ -d ".claude/agents" ]]; then
+            print_info "Copying Claude agents..."
+            cp -r ".claude/agents" "$HOME/.claude/"
+        fi
+        
+        # Copy commands directory
+        if [[ -d ".claude/commands" ]]; then
+            print_info "Copying Claude commands..."
+            cp -r ".claude/commands" "$HOME/.claude/"
+        fi
+        
+        print_success "Claude Code configuration setup completed"
+        print_info "Remember to:"
+        print_info "  - Update CLAUDE.md with your personal information"
+        print_info "  - Configure any required API keys in settings.local.json"
+        print_info "  - Update Notion URLs if you use the Notion integration"
+    else
+        print_warning "Claude configuration backup not found, skipping Claude setup"
+    fi
+}
+
 # Main installation function
 main() {
     print_info "Starting dotfiles setup..."
@@ -203,6 +255,7 @@ main() {
     create_directories
     install_packages
     apply_configurations
+    setup_claude_config
     setup_ssh_permissions
     generate_ssh_keys
     set_macos_defaults

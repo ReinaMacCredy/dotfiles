@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/maccredyreina/claude-gemini-bridge/hooks/gemini-bridge.sh"
+            "command": "$HOME/claude-gemini-bridge/hooks/gemini-bridge.sh"
           }
         ]
       }
