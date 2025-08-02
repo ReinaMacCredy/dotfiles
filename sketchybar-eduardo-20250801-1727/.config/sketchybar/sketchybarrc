@@ -1,0 +1,91 @@
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+HELPER="$CONFIG_DIR/helper"
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icon_map.sh" # Loads all defined icons
+
+FONT="JetBrainsMono Nerd Font"
+BAR_HEIGHT=32
+CORNER_RADIUS=12
+PADDING=8
+ICON_PADDING=6
+BLUR_STRENGTH=50
+
+# Setting up the general bar appearance and default values
+sketchybar --bar height=$BAR_HEIGHT \
+              position=top \
+              sticky=off \
+              padding_left=0 \
+              padding_right=0 \
+              margin=16 \
+              corner_radius=$CORNER_RADIUS \
+              blur_radius=$BLUR_STRENGTH \
+              color=0x801a1b26 \
+              border_width=1 \
+              border_color=0x307aa2f7 \
+              shadow=on
+                                                                       
+
+sketchybar --default icon.font="$FONT:Medium:14.0" \
+                    icon.color=0xffa9b1d6 \
+                    icon.padding_left=$ICON_PADDING \
+                    icon.padding_right=$ICON_PADDING \
+                    label.font="$FONT:Medium:13.0" \
+                    label.color=0xffa9b1d6 \
+                    label.padding_left=4 \
+                    label.padding_right=$PADDING \
+                    background.color=0x00000000 \
+                    background.corner_radius=8 \
+                    background.height=24 \
+                    background.border_width=0 \
+                    padding_left=6 \
+                    padding_right=6
+
+
+###############################################################################
+#                                Left side
+###############################################################################
+
+# source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/aerospace-mode.sh"
+source "$ITEM_DIR/front_app.sh"
+source "$ITEM_DIR/aerospacer.sh"
+
+sketchybar --add item left_separator left \
+           --set left_separator icon="│" \
+                                icon.color=0x507aa2f7 \
+                                icon.font="$FONT:Light:16.0" \
+                                background.padding_right=8 \
+                                background.padding_left=8
+
+###############################################################################
+#                                 Center
+###############################################################################
+
+# source "$ITEM_DIR/media.sh"
+source "$ITEM_DIR/pomodoro.sh"
+
+
+###############################################################################
+#                               Right side
+###############################################################################
+
+# source "$ITEM_DIR/media.sh"
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+
+sketchybar --add bracket system_info wifi cpu battery volume \
+           --set system_info background.color=0x6024283b \
+                            background.corner_radius=10 \
+                            background.border_width=1 \
+                            background.border_color=0x307aa2f7
+
+############## FINALIZING THE SETUP ##############
+sketchybar --update
+
+sketchybar --hotload on
+
+echo "sketchybar configuation loaded.."

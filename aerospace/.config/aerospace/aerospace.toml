@@ -36,7 +36,7 @@ default-root-container-layout = 'tiles'
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'horizontal'
+default-root-container-orientation = 'auto'
 
 
 # Mouse follows focus when focused monitor changes
@@ -98,36 +98,11 @@ if.app-id = 'pl.maketheweb.cleanshotx'
 check-further-callbacks = true
 run = 'layout floating'
 
-# Ensure development apps always tile (fix for workspace 1)
-[[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-check-further-callbacks = true
-run = 'layout tiling'
-
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-check-further-callbacks = true
-run = 'layout tiling'
-
-[[on-window-detected]]
-if.app-id = 'dev.warp.Warp-Stable'
-check-further-callbacks = true
-run = 'layout tiling'
-
+# Finder should always float
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 check-further-callbacks = true
 run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
-check-further-callbacks = true
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.dia'
-check-further-callbacks = true
-run = 'layout tiling'
 
 # System utilities should always float
 [[on-window-detected]]
@@ -191,13 +166,27 @@ if.app-id = 'org.videolan.vlc'
 check-further-callbacks = true
 run = 'layout floating'
 
-# Utilities apps - set to workspace 1 and tile
+
+# === WORKSPACE ASSIGNMENTS WITH TILING ===
+
+# Utilities workspace (workspace 1) - Browser
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.dia'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
-# Development apps - set to workspace 3 and tile
+# Communication workspace (workspace 2)  
+[[on-window-detected]]
+if.app-id = 'com.vng.zalo'
+check-further-callbacks = true  
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+# Development workspace (workspace 3)
 [[on-window-detected]]
 if.app-id = 'dev.warp.Warp-Stable'
 check-further-callbacks = true
@@ -209,31 +198,14 @@ check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCodeInsiders'
+if.app-id = 'com.github.wez.wezterm'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 3']
 
-# Media apps should float
 [[on-window-detected]]
-if.app-id = 'com.apple.Music'
+if.app-id = 'com.microsoft.VSCodeInsiders'
 check-further-callbacks = true
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.github.th-ch.youtube-music'
-check-further-callbacks = true
-run = 'layout floating'
-
-# Communication apps - set to workspace 2 and tile
-[[on-window-detected]]
-if.app-id = 'com.vng.zalo'
-check-further-callbacks = true  
-run = ['layout tiling', 'move-node-to-workspace 2']
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 2']
+run = ['layout tiling', 'move-node-to-workspace 3']
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
