@@ -166,6 +166,21 @@ if.app-id = 'org.videolan.vlc'
 check-further-callbacks = true
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.colliderli.iina'
+check-further-callbacks = true
+run = 'layout floating'
+
 
 # === WORKSPACE ASSIGNMENTS WITH TILING ===
 
